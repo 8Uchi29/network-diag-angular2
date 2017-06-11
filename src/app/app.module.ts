@@ -1,18 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { NetworkDiagComponent } from './network-diag/network-diag.component';
+import {APP_BASE_HREF} from '@angular/common';
+import { NetworkDiagramComponent } from './network-diagram/network-diagram.component';
 
+const appRoutes: Routes = [
+  {path: '', component: AppComponent }
+]
 @NgModule({
   declarations: [
     AppComponent,
-    NetworkDiagComponent
+    NetworkDiagramComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ AppComponent],
+  bootstrap: [ AppComponent]
 })
 export class AppModule { }
